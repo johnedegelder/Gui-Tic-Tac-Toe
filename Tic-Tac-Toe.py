@@ -1,6 +1,7 @@
 import tkinter
 from tkinter import*
 import tkinter as tk
+
 # to allow scoreing to happen gives all buttons a false variable to pass to the function
 btn00 = False
 btn01 = False
@@ -22,8 +23,8 @@ def buttonpressed(btn,tf):
        counter += 1
        # sets the button  color and text based on whos 'turn' it is
        if counter % 2 == 0:
-           btn.configure(bg = "red", text="O", state="disabled")
-           tf=FALSE
+           btn.configure(bg = "red", text="O", state="disabled") # sets the button to desired display values and disables it
+           tf=FALSE # sets the buttons variable true or false
        else:
            btn.configure(bg = "blue", text="X", state="disabled")
            tf=TRUE
@@ -40,7 +41,7 @@ window.title("Tic-Tac-Toe")
 window.geometry("300x300")
 # all 9 buttons, with the name refering to the posistion on the grid
 b00 = tkinter.Button(window, command=lambda: buttonpressed(b00, btn00), text="#", padx=20, pady=20)
-b00.grid(row=0, column=0)
+b00.grid(row=0, column=0) # since .grid command is used instead of .pack a new line in needed
 b01 = tkinter.Button(window, command=lambda: buttonpressed(b01, btn01), text="#", padx=20, pady=20)
 b01.grid(row=0, column=1)
 b02 = tkinter.Button(window, command=lambda: buttonpressed(b02, btn02), text="#", padx=20, pady=20)
@@ -57,14 +58,16 @@ b21 = tkinter.Button(window, command=lambda: buttonpressed(b21, btn21), text="#"
 b21.grid(row=2, column=1)
 b22 = tkinter.Button(window, command=lambda: buttonpressed(b22, btn22), text="#", padx=20, pady=20)
 b22.grid(row=2, column=2)
-
+# label at bottom of screen will show winner and important info some day
 label = tkinter.Label(window, text="Im a label!!").grid(row=3, column=0, columnspan=3)
+
+# two attempts at getting the program to do something after all buttons pressed
 if b00["state"]=="disabled":
     print ("finally")
 
 if counter == 8:
     print("Counter is working as a universal variable!!")
+
 # draw window and start
 window.mainloop()
 
-print(btn01)
